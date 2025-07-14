@@ -1,18 +1,26 @@
 
-// Top-level build file
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
+plugins {
+    id 'com.android.application'
+}
+android {
+    namespace 'com.park.n.joy'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.parknjoy.app"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.1'
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 }
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+dependencies {
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }
     
