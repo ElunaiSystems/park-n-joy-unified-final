@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Park N Joy - Joyful Family Travel Design System */
+
+@layer base {
+  :root {
+    /* Joyful Primary Colors */
+    --background: 220 100% 98%;
+    --foreground: 230 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 15% 15%;
+
+    /* Joy Blue - Primary brand color */
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 210 100% 95%;
+
+    /* Adventure Green - Secondary actions */
+    --secondary: 145 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-soft: 145 70% 95%;
+
+    /* Sunshine Yellow - Highlights & Joy */
+    --accent: 50 100% 60%;
+    --accent-foreground: 230 15% 15%;
+    --accent-soft: 50 100% 95%;
+
+    /* Gentle grays */
+    --muted: 220 15% 96%;
+    --muted-foreground: 230 10% 50%;
+
+    /* Emergency red */
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 220 15% 90%;
+    --input: 220 15% 95%;
+    --ring: 210 100% 50%;
+    --radius: 1rem;
+
+    /* Custom Joy Colors */
+    --joy-orange: 25 95% 65%;
+    --joy-purple: 270 70% 65%;
+    --shade-blue: 200 80% 40%;
+    --emergency-red: 0 85% 55%;
+
+    /* Gradients */
+    --gradient-joy: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-adventure: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--joy-orange)));
+    --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows */
+    --shadow-joy: 0 8px 32px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 16px hsl(var(--foreground) / 0.08);
+    --shadow-button: 0 2px 8px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-joy: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-gentle: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Joy Button Variants */
+  .btn-joy {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply shadow-[var(--shadow-button)] transition-[var(--transition-joy)];
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .btn-adventure {
+    @apply bg-gradient-to-r from-secondary to-joy-orange text-secondary-foreground;
+    @apply shadow-[var(--shadow-button)] transition-[var(--transition-joy)];
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .btn-emergency {
+    @apply bg-emergency-red text-destructive-foreground border-2 border-emergency-red;
+    @apply shadow-lg transition-[var(--transition-joy)];
+    @apply hover:bg-destructive-foreground hover:text-emergency-red;
+    @apply animate-pulse;
+  }
+
+  /* Joy Cards */
+  .card-joy {
+    @apply bg-card border border-border rounded-[var(--radius)];
+    @apply shadow-[var(--shadow-card)] transition-[var(--transition-joy)];
+    @apply hover:shadow-[var(--shadow-joy)] hover:-translate-y-1;
+  }
+
+  .card-feature {
+    @apply card-joy bg-gradient-to-br from-primary-soft to-accent-soft;
+    @apply border-primary/20;
+  }
+
+  /* Joy Animations */
+  .bounce-joy {
+    animation: bounce-joy 1s ease-in-out infinite;
+  }
+
+  .float-gentle {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+
+  .pulse-joy {
+    animation: pulse-joy 2s ease-in-out infinite;
+  }
+
+  /* Family-friendly touch targets */
+  .touch-friendly {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center;
+  }
+
+  /* Joy Icons */
+  .icon-joy {
+    @apply text-primary drop-shadow-sm;
+  }
+
+  .icon-accent {
+    @apply text-accent drop-shadow-sm;
+  }
+
+  .icon-adventure {
+    @apply text-secondary drop-shadow-sm;
+  }
+}
+
+@keyframes bounce-joy {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-4px) rotate(1deg); }
+  66% { transform: translateY(-2px) rotate(-1deg); }
+}
+
+@keyframes pulse-joy {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}

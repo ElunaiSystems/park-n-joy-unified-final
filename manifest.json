@@ -1,0 +1,123 @@
+{
+  "name": "Park N Joy - Family Travel Assistant",
+  "short_name": "Park N Joy",
+  "description": "Your intelligent family travel companion for discovering amazing stops, planning safe routes, and creating magical memories.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f8ff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "categories": ["travel", "navigation", "lifestyle", "family"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "type": "image/png",
+      "sizes": "390x844",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide"
+    }
+  ],
+  "features": [
+    "offline-support",
+    "location-services",
+    "push-notifications",
+    "background-sync"
+  ],
+  "serviceworker": {
+    "src": "/sw.js",
+    "scope": "/",
+    "update_via_cache": "imports"
+  },
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Plan Trip",
+      "short_name": "Plan",
+      "description": "Quickly plan a new family trip",
+      "url": "/plan",
+      "icons": [
+        {
+          "src": "/icon-plan.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Find Joy Stops",
+      "short_name": "Explore",
+      "description": "Discover nearby family-friendly stops",
+      "url": "/map",
+      "icons": [
+        {
+          "src": "/icon-map.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Emergency Mode",
+      "short_name": "Emergency",
+      "description": "Quick access to emergency features",
+      "url": "/emergency",
+      "icons": [
+        {
+          "src": "/icon-emergency.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "photos",
+          "accept": ["image/*"]
+        }
+      ]
+    }
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "geo",
+      "url": "/map?location=%s"
+    }
+  ]
+}
